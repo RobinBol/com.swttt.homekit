@@ -9,6 +9,8 @@
   "author": "Bas Jansen",
   "license": "ISC",
   "dependencies": {
-    "has-node": "0.0.2"
+    "has-node": "0.0.2",
+    "node-rest-client": "^3.1.0",
+    "node-rest-client-promise": "^2.0.0"
   }
 }
