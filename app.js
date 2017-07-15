@@ -17,15 +17,15 @@ class HomekitApp extends Homey.App {
         const devices = await api.getAllDevices()
         for (var key in devices) {
           if (devices.hasOwnProperty(key)) {
-            if (devices[key].capabilities.onoff) {
-              await homekit.addDevice(devices[key]);
+            if (devices[key].class == 'light') {
+              await homekit.addLight(devices[key]);
               await console.log(devices[key].name);
             }
           }
         }
         homekit.startServer();
       })
-      .catch(this.error)
+      .catch(Homey.log)
 
   }
 
