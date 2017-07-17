@@ -20,6 +20,7 @@ class HomekitApp extends Homey.App {
             if (devices[key].class == 'light') {
               await homekit.addLight(devices[key]);
               await console.log(devices[key].name);
+              await console.log(device[key].state.onoff, device[key].state.dim)
             }
           }
         }
