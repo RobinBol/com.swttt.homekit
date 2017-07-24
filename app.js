@@ -1,16 +1,14 @@
 "use strict";
-
+// process.env.DEBUG = 'TCP';
 const Homey = require('homey');
 
 const api = require('./lib/athom-api.js');
 const homekit = require('./lib/homekit.js')
 
-
 class HomekitApp extends Homey.App {
 
 
   onInit() {
-
     api.getSystemInfo()
       .then(async(res) => {
         await homekit.configServer(res);
