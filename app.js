@@ -1,5 +1,5 @@
 "use strict";
-// process.env.DEBUG = 'TCP';
+process.env.DEBUG = 'TCP';
 const Homey = require('homey');
 
 const api = require('./lib/athom-api.js');
