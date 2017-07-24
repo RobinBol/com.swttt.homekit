@@ -12,16 +12,16 @@ class HomekitApp extends Homey.App {
     api.getSystemInfo()
       .then(async(res) => {
         await homekit.configServer(res);
-        // const devices = await api.getAllDevices()
-        // for (var key in devices) {
-        //   if (devices.hasOwnProperty(key)) {
-        //     if (devices[key].class == 'light') {
-        //       await homekit.addLight(devices[key]);
-        //       await console.log(devices[key].name);
-        //       await console.log(devices[key].state.onoff, devices[key].state.dim)
-        //     }
-        //   }
-        // }
+        const devices = await api.getAllDevices()
+        for (var key in devices) {
+          if (devices.hasOwnProperty(key)) {
+            if (devices[key].class == 'light') {
+              await homekit.addLight(devices[key]);
+              await console.log(devices[key].name);
+              await console.log(devices[key].state.onoff, devices[key].state.dim)
+            }
+          }
+        }
         homekit.startServer();
       })
       .catch(this.error)
